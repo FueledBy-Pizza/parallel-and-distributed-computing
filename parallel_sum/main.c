@@ -3,12 +3,6 @@
 #include <mpi.h>
 
 int main(int argc, char *argv[]){
-
-    if(argc != 3){
-	printf("Usage: <n_numbers> <strategy>\n");
-        exit(EXIT_SUCCESS);
-    }
-
     int nproc, curr_proc;
 
     MPI_Init(&argc, &argv);
