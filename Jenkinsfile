@@ -13,7 +13,9 @@ pipeline {
                 sh 'echo Hello world again!'
             }
             post{
-                sh 'echo Hello world one last time!'
+                always{
+                    sh 'echo Hello world one last time!'
+                }
             }
         }
     }
