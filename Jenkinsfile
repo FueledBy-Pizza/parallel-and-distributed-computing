@@ -1,51 +1,19 @@
 pipeline {
     agent {
-        label 'java-maven'
+        label 'docker'
     }
-
-    environment {
-        DOCKER_REGISTRY_URL = 'localhost:5000'
-    }
-
-    options {
-        timeout(time: 7, unit: 'MINUTES')
-    }
-
     stages {
         stage('Build') {
-            options {
-                timeout(time: 1, unit: 'MINUTES')
-            }
-
             steps {
-                dir('test-pilot') {
-                    sh '''
-                        mvn clean package
-                    '''
-                }
+                sh 'echo Hello world!'
             }
         }
 
-        stage('End to end Tests') {
-            options {
-                timeout(time: 5, unit: 'MINUTES')
-            }
-
-            steps {
-                dir('test-pilot') {
-                    sh '''
-                        mvn test -Dcucumber.features=src/test/resources
-                    '''
+        stage('My Post ACtion Stage') {
+            post{
+                steps{
+                    sh 'echo End Pipeline'
                 }
-            }
-        }
-
-    }
-
-    post {
-        always  {
-            dir('test-pilot') {
-                junit 'target/surefire-reports/**/*.xml'
             }
         }
     }
