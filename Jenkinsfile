@@ -9,12 +9,11 @@ pipeline {
             }
         }
         stage('My Post Action Stage') {
+            steps{
+                sh 'echo Hello world again!'
+            }
             post{
-                steps{
-                    always{
-                        sh 'echo Azione post'
-                    }
-                }
+                sh 'echo Hello world one last time!'
             }
         }
     }
