@@ -8,5 +8,12 @@ pipeline {
                 sh 'echo Hello world!'
             }
         }
+        stage('My Post Action Stage') {
+            post{
+                always{
+                    sh 'echo Azione post'
+                }
+            }
+        }
     }
 }
