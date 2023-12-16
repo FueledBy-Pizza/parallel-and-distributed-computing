@@ -10,8 +10,10 @@ pipeline {
         }
         stage('My Post Action Stage') {
             post{
-                always{
-                    sh 'echo Azione post'
+                steps{
+                    always{
+                        sh 'echo Azione post'
+                    }
                 }
             }
         }
