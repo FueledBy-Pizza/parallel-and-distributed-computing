@@ -8,13 +8,5 @@ pipeline {
                 sh 'echo Hello world!'
             }
         }
-
-        stage('My Post ACtion Stage') {
-            post{
-                always{
-                    sh 'echo End Pipeline'
-                }
-            }
-        }
     }
 }
