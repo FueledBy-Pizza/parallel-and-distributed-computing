@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo Hello world!'
+                script {
+                    // Simulate a failure by using the 'error' step
+                    error("This pipeline intentionally fails. Will My Post Action Stage execute?")
+                }
             }
         }
         stage('My Post Action Stage') {
