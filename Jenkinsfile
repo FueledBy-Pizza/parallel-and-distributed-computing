@@ -11,7 +11,7 @@ pipeline {
 
         stage('My Post ACtion Stage') {
             post{
-                steps{
+                always{
                     sh 'echo End Pipeline'
                 }
             }
