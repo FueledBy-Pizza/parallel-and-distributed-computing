@@ -11,13 +11,14 @@ pipeline {
                 }
             }
         }
-        stage('My Post Action Stage') {
-            steps{
-                sh 'echo Hello world again!'
-            }
-            post{
-                always{
-                    sh 'echo Hello world one last time!'
+        post {
+            always {
+                stage('Final Stage') {
+                    steps {
+                        // This stage will run regardless of the success or failure of previous stages
+                        echo 'This is the final stage.'
+                        // Add your final stage steps here
+                    }
                 }
             }
         }
