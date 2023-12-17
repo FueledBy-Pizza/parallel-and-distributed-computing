@@ -11,11 +11,8 @@ pipeline {
     }
     post {
         always {
-            stage('Final Stage') {
-                steps {
-                    // This stage will run regardless of the success or failure of previous stages
-                    echo 'Hello world one last time!'
-                }
+            mineRepository{
+                
             }
         }
     }
