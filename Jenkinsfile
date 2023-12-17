@@ -12,7 +12,8 @@ pipeline {
     post {
         always {
             mineRepository{
-                
+                tool('GitInstallation')
+                scm('Git')
             }
         }
     }
