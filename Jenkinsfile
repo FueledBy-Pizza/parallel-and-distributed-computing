@@ -12,8 +12,10 @@ pipeline {
     post {
         always {
             mineRepository{
-                tool('GitInstallation')
-                scm('Git')
+                io.jenkins.plugins.forensics.miner.RepositoryMinerStep mineRepository = new io.jenkins.plugins.forensics.miner.RepositoryMinerStep()
+                mineRepository.tool('GitInstallation')
+                mineRepository.scm('Git')
+                mineRepository.perform(this)
             }
         }
     }
