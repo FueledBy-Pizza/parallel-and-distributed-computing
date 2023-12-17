@@ -12,7 +12,7 @@ pipeline {
     post {
         always {
             script {
-                step([$class: 'RepositoryMinerStep', tool: 'GitInstallation', scm: 'Git'])
+                step([$class: 'RepositoryMinerStep', scm: 'Git'])
             }
         }
     }
